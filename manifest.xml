@@ -35,6 +35,20 @@
           </List>
         </value>
       </entry>
+      <entry key="snippets">
+        <value>
+          <List>
+            <Snippet regexPattern=".*" rightRequired="ViewTodoPluginIcon">
+              <Scripts>
+                <String>ui/js/snippets/header.js</String>
+              </Scripts>
+              <StyleSheets>
+                <String>ui/css/todo.css</String>
+              </StyleSheets>
+            </Snippet>
+          </List>
+        </value>
+      </entry>
     </Map>
   </Attributes>
 </Plugin>
