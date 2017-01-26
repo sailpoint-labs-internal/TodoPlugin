@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+
+<sailpoint>
+
+  <Policy name="Active Todos Policy" type="Todo" certificationActions="Mitigated,Delegated" configPage="genericpolicy.xhtml" executor="com.acme.todo.policy.TodoPolicyExecutor" state="Active" violationOwnerType="Manager">
+    <Attributes>
+      <Map>
+        <entry key="pluginName" value="TodoPlugin" />
+        <entry key="maxActiveTodos" value="10" />
+        <entry key="sysDescriptions">
+          <value>
+            <Map>
+              <entry key="en_US" value="Checks to see if an identity has too many active todos."/>
+            </Map>
+          </value>
+        </entry>
+      </Map>
+    </Attributes>
+    <Signature>
+      <Inputs>
+        <Argument helpKey="The maximum number of todos a single identity is allowed to have at open." name="maxActiveTodos" type="int">
+          <Prompt>Max Active Todos</Prompt>
+        </Argument>
+      </Inputs>
+    </Signature>
+    <Owner>
+      <Reference class="sailpoint.object.Identity" name="spadmin"/>
+    </Owner>
+    <ViolationOwner>
+      <Reference class="sailpoint.object.Identity" name="spadmin"/>
+    </ViolationOwner>
+  </Policy>
+
+</sailpoint>
+

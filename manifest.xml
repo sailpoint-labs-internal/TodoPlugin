@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Plugin PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Plugin certificationLevel="None" displayName="Todo Plugin" minSystemVersion="7.1" name="TodoPlugin" version="2.0">
+  <Attributes>
+    <Map>
+      <entry key="minUpgradableVersion" value="1.0" />
+      <entry key="fullPage">
+        <value>
+          <FullPage title="Todo List" />
+        </value>
+      </entry>
+      <entry key="restResources">
+        <value>
+          <List>
+            <String>com.acme.todo.rest.TodoResource</String>
+            <String>com.acme.todo.rest.FlaggedUserResource</String>
+            <String>com.acme.todo.rest.PageConfigResource</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="serviceExecutors">
+        <value>
+          <List>
+            <String>com.acme.todo.server.TodoFlaggingService</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="settings">
+        <value>
+          <List>
+            <Setting dataType="boolean" helpText="Indicates whether or not todos can be deleted" label="Delete Allowed" name="canDelete" defaultValue="true"/>
+            <Setting dataType="string" helpText="The default name for a todo" label="Default Name" name="defaultName" defaultValue="My Todo"/>
+            <Setting dataType="int" helpText="The default time in minutes for a todo" label="Default Time" name="defaultTime" defaultValue="30"/>
+            <Setting dataType="int" helpText="The maximum numer of active todos a user is allowed to have before being flagged" label="Max Active Todos" name="maxUntilFlagged" defaultValue="10"/>
+          </List>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+</Plugin>
+

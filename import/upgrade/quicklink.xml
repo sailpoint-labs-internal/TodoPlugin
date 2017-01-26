@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+
+<!-- (c) Copyright 2016 SailPoint Technologies, Inc., All Rights Reserved. -->
+
+<sailpoint>
+
+  <QuickLink action="external" category="TodoPlugin" messageKey="View Todo List" name="ViewTodoList" ordering="4">
+    <Attributes>
+      <Map>
+        <entry key="url" value="plugins/pluginPage.jsf?pn=TodoPlugin"/>
+      </Map>
+    </Attributes>
+    <QuickLinkOptions allowSelf="true">
+      <DynamicScopeRef>
+        <Reference class="sailpoint.object.DynamicScope" name="Everyone"/>
+      </DynamicScopeRef>
+    </QuickLinkOptions>
+  </QuickLink>
+
+</sailpoint>
+

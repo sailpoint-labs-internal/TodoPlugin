@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+
+<sailpoint>
+
+  <TaskDefinition name="Cleanup Todos" executor="com.acme.todo.task.TodoTaskExecutor" resultAction="Delete" subType="task_item_type_generic" type="Generic">
+    <Description>
+      Task which cleans up any todos that have been completed.
+    </Description>
+    <Attributes>
+      <Map>
+        <entry key="pluginName" value="TodoPlugin" />
+      </Map>
+    </Attributes>
+    <Signature>
+      <Returns>
+        <Argument name="numTodosDeleted" type="int">
+          <Prompt>Total Todos Deleted</Prompt>
+        </Argument>
+      </Returns>
+    </Signature>
+  </TaskDefinition>  
+
+</sailpoint>
+

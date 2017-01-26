@@ -1,0 +1,11 @@
+
+--
+-- MS SQL Server DDL plugin script
+--
+
+DROP TABLE tp_todo_list
+GO
+
+DROP TABLE tp_flagged_user
+GO
+

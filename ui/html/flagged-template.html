@@ -1,0 +1,32 @@
+<div id="infoModal" role="dialog" aria-labelledby="modalTitle" class="info-modal">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modalTitle">Flagged Users</h4>
+  </div>
+  <div class="modal-body">
+    <div id="modal-content">
+      <table class="table m-t" ng-if="ctrl.flaggedUsers.length > 0">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Num Todos</th>
+            <th>Created</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="flaggedUser in ctrl.flaggedUsers">
+            <td>{{ flaggedUser.username }}</td>
+            <td>{{ flaggedUser.numTodos }}</td>
+            <td>{{ flaggedUser.created | date:'short' }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3 class="text-muted text-center" ng-if="ctrl.flaggedUsers.length === 0">
+        No flagged users
+      </h3>
+    </div>
+  </div>
+  <div class="modal-footer bg-light lt">
+    <button tabindex="50" ng-click="ctrl.close()" type="button" class="btn btn-info btn-default">Close</button>
+  </div>
+</div>
+

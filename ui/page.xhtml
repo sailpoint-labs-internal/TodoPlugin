@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC
+  "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<body>
+
+<ui:composition>
+
+    <div class="container" ng-app="TodoList" ng-controller="TodoController as ctrl">
+        <div class="row m-t" ng-if="ctrl.pageConfig.showFlagged">
+           <button class="btn btn-danger pull-right" ng-click="ctrl.viewFlaggedUsers()">Flagged Users</button>
+        </div>
+        <div class="row m-t">
+            <div class="panel">
+                <div class="panel-heading bg-light lter">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <span class="panel-title"><b>Todo List</b></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <form>
+                                <div class="form-group">
+                                    <label for="todoName">New Todo</label>
+                                    <input type="text" class="form-control" id="todoName" placeholder="Enter a new todo item" ng-model="ctrl.name" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="todoTime">Estimated Time</label>
+                                    <input type="number" pattern="\d+" class="form-control" id="todoTime" placeholder="Enter the estimated time" ng-model="ctrl.time" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="todoNotes">Notes</label>
+                                    <textarea class="form-control" id="todoNotes" placeholder="Enter notes" ng-model="ctrl.notes"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-info" ng-click="ctrl.addTodo()">Create</button>
+                            </form>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <table class="table m-t table-hover table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Estimate</th>
+                                        <th>Created</th>
+                                        <th>Completed</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="todo in ctrl.todos" ng-class="{ 'success' : todo.complete }">
+                                        <th scope="row">{{ $index + 1 }}</th>
+                                        <td>{{ todo.name }}</td>
+                                        <td>{{ todo.estimate }} min.</td>
+                                        <td>{{ todo.created | date:'short' }}</td>
+                                        <td ng-if="!todo.completedOn">In Progress</td>
+                                        <td ng-if="todo.completedOn">{{ todo.completedOn | date:'short' }}</td>
+                                        <td>
+                                            <button class="btn btn-success btn-sm" ng-click="ctrl.completeTodo(todo)" ng-if="!todo.complete">Done</button>
+                                            <button class="btn btn-danger btn-sm" ng-click="ctrl.deleteTodo(todo)" ng-if="ctrl.pageConfig.showClear">Clear</button>
+                                            <button class="btn btn-white btn-sm" ng-click="ctrl.viewNotes(todo)" ng-if="todo.notes">View Notes</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h3 class="text-muted text-center" ng-if="ctrl.todos.length === 0">
+                                You are caught up!
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer bg-light lter">
+                    &nbsp;
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="#{plugins.requestContextPath}/plugin/TodoPlugin/ui/js/angular.min.js"></script>
+    <script src="#{plugins.requestContextPath}/plugin/TodoPlugin/ui/js/ui-bootstrap.min.js"></script>
+    <script src="#{plugins.requestContextPath}/plugin/TodoPlugin/ui/js/TodoModule.js"></script>
+
+</ui:composition>
+
+</body>
+</html>
+

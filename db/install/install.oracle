@@ -1,0 +1,26 @@
+
+--
+-- Oracle DDL plugin script
+--
+
+CREATE TABLE tp_todo_list (
+    id varchar2(32 char) not null,
+    user_id varchar2(32 char) not null,
+    name varchar2(255 char) not null,
+    estimate number(19, 0),
+    notes varchar2(1024 char),
+    complete number(1, 0),
+    created number(19, 0),
+    completed_on number(19, 0),
+    primary key (id)
+);
+
+CREATE TABLE tp_flagged_user (
+    id varchar2(32 char) not null,
+    user_id varchar2(32 char) not null,
+    username varchar2(255 char) not null,
+    num_todos number(19, 0),
+    created number(19, 0),
+    primary key (id)
+);
+

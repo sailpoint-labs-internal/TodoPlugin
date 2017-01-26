@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+
+<sailpoint>
+
+  <ServiceDefinition name="TodoFlaggingService" executor="com.acme.todo.server.TodoFlaggingService" interval="60" hosts="global">
+    <Description>
+      Service definition for the todo cleanup service.  
+    </Description>
+    <Attributes>
+      <Map>
+        <entry key="pluginName" value="TodoPlugin" />
+      </Map>
+    </Attributes>
+  </ServiceDefinition>
+
+</sailpoint>
+

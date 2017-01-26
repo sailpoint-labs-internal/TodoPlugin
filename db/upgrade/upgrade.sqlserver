@@ -1,0 +1,18 @@
+
+--
+-- MS SQL Server DDL plugin script
+--
+
+ALTER TABLE tp_todo_list ADD notes nvarchar(1024) null
+GO
+
+CREATE TABLE tp_flagged_user (
+    id nvarchar(32) not null,
+    user_id nvarchar(32) not null,
+    username nvarchar(255) not null,
+    num_todos numeric(19, 0) null,
+    created numeric(19, 0) null,
+    primary key (id)
+)
+GO
+
